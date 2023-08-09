@@ -20,7 +20,8 @@ my_cur=my_cnx.cursor()
 # run a snowflake query and put it all in a var called my_catalog
 my_cur.execute("select color_or_style from catalog_for_website")
 my_catalog = my_cur.fetchall()
-streamlit.dataframe(my_catalog)
+#streamlit.dataframe(my_catalog)
+df=pandas.DataFrame(my_catalog)
 
 #my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 #my_fruit_list = my_fruit_list.set_index('Fruit')
