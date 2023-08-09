@@ -4,13 +4,13 @@ import requests
 import snowflake.connector
 from urllib.error import URLError
 
-streamlit.title('My Parents new healthy diner')
-streamlit.header('Breakfast Favorites')
-streamlit.text('🥣 Omega 3 and blueberry Oatmeal')
-streamlit.text('🥗 Kale, Spinach and Rocket Smoothie')
-streamlit.text('🐔 Hard Boiled Free Range Eggs')
-streamlit.text('🥑🍞 Avocado Toast')
-streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
+streamlit.title('Zena\'s Amazing Athleisure Catalog')
+streamlit.header('SweatSuit Collection')
+streamlit.text('Buy one Get One offer')
+#streamlit.text('🥗 Kale, Spinach and Rocket Smoothie')
+#streamlit.text('🐔 Hard Boiled Free Range Eggs')
+#streamlit.text('🥑🍞 Avocado Toast')
+#streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 my_cnx=snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur=my_cnx.cursor()
 my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(),CURRENT_REGION()")
