@@ -11,6 +11,14 @@ streamlit.text('🥗 Kale, Spinach and Rocket Smoothie')
 streamlit.text('🐔 Hard Boiled Free Range Eggs')
 streamlit.text('🥑🍞 Avocado Toast')
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
+my_cnx=snowflake.connector.connect(**streamlit.secrets["snowflake"])
+my_cur=my_cnx.cursor()
+my_cur.execute(""SELECT CURRENT_USER(), CURRENT_ACCOUNT(),CURRENT_REGION()")
+my_data_row=my_cur.fetchone()
+#my_data_rows=get_fruit_load_list()
+#my_cnx.close()
+streamlit.dataframe(my_data_row)
+
 #my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 #my_fruit_list = my_fruit_list.set_index('Fruit')
 #fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Apple'])
@@ -38,13 +46,7 @@ streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
             #my_cur.execute("select * from fruit_load_list")
             #return my_cur.fetchall()
 #if streamlit.button('Get Fruit List'):
-      my_cnx=snowflake.connector.connect(**streamlit.secrets["snowflake"])
-      my_cur=my_cnx.cursor()
-      my_cur.execute(""SELECT CURRENT_USER(), CURRENT_ACCOUNT(),CURRENT_REGION()")
-      my_data_row=my_cur.fetchone()
-      #my_data_rows=get_fruit_load_list()
-      #my_cnx.close()
-      streamlit.dataframe(my_data_row)
+      
 
 #def insert_row_snowflake(new_fruit):
       #with my_cnx.cursor() as my_cur:
