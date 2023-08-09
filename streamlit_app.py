@@ -24,6 +24,8 @@ my_catalog = my_cur.fetchall()
 df=pandas.DataFrame(my_catalog)
 # temp write the dataframe to the page so I Can see what I am working with
 streamlit.write(df)
+# put the first column into a list
+color_list=df[0].values.tolist()
 #my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 #my_fruit_list = my_fruit_list.set_index('Fruit')
 #fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Apple'])
